@@ -51,16 +51,7 @@ const CreateGroupComp = () => {
     const classes = useStyles();
     const[users, setUsers] = useState([])
     const[numbers, setNumbers] = useState(0)
-    const[group , setGroup] = useState({
-        _id: "123",
-        members :[] ,
-        managers : [] ,
-        name : '' ,
-        image : '', 
-        status : '' ,
-        chat : []
-
-    })
+    const[group , setGroup] = useState({})
     
 
     useEffect(async ()=>{
@@ -70,6 +61,7 @@ const CreateGroupComp = () => {
         let managerObj = {
             userId : sessionStorage.getItem('id')
         }
+        setId(id)
         managerArray.push(managerObj)
         setGroup({...group, managers:managerArray})
     },[])
