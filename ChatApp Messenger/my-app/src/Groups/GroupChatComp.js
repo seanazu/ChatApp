@@ -75,15 +75,19 @@ const GroupChatComp = (props) => {
         if(item.userId == id || item.user == name){
             messageClass = "mine messages"
         }
+        let fromDisplay = "unset"
+        if(item.username == undefined){
+            fromDisplay="none"
+        }
         
          return(
             <div key={index} className={messageClass} >
                 <div className="message last">
                     {item.message}<br/>
-                   from: {item.username}
+                  <span style={{display:fromDisplay}}> from: {item.username}</span>
                 </div>
             </div>
-        )  
+        )
     })
 
 
