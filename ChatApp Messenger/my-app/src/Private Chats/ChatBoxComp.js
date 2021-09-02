@@ -11,9 +11,6 @@ import io from 'socket.io-client';
 import axios from 'axios'
 
 
-let socket;
-
-
 const useStyles = makeStyles({
   root: {
       maxWidth: 450,
@@ -35,7 +32,7 @@ const ChatBoxComp = (props) => {
   let id = props.match.params.userId 
 
   useEffect( ()=>{
-      socket = io(ENDPOINT)
+      let socket = io(ENDPOINT)
       socket.emit('join',name ,room)
      
     },[ENDPOINT])
