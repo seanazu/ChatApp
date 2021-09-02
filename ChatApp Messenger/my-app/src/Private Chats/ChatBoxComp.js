@@ -77,7 +77,7 @@ const ChatBoxComp = (props) => {
 
   let messagesObj = messages.map((item,index) =>{
     let messageClass = "yours messages"
-    if(item.userId == id || item.user == name){
+    if(item.userId == id){
       messageClass = "mine messages"
     }
     return(
