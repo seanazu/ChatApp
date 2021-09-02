@@ -41,10 +41,6 @@ const UsersComp = () => {
     const findUser = () =>{
       setFind(search)
     }
-
-
-  ///------------------/////
-
   
   let usersObj = users.map( (user,index) =>{
     let id = sessionStorage.getItem('id')
