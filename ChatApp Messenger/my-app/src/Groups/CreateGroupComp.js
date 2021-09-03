@@ -57,7 +57,7 @@ const CreateGroupComp = () => {
     
 
     useEffect(async ()=>{
-        let users = await axios.get('http://localhost:7000/users')
+        const users = await axios.get('http://localhost:7000/users')
         setUsers(users.data)
         let managerArray = []
         let managerObj = {
