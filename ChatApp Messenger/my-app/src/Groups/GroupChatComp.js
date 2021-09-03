@@ -16,6 +16,9 @@ let socket;
 const useStyles = makeStyles({
     root: {
         maxWidth: 450,
+        margin:'auto',
+        width:'450px', 
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
       },
       media: {
         height: 140,
@@ -94,7 +97,7 @@ const GroupChatComp = (props) => {
     return (
         <div>
                <br/> 
-            <Card className="chat" className={classes.root} style={{margin:'auto',width:'450px', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}} >
+            <Card className="chat" className={classes.root} >
                 <CardContent>
                     {messageObj}
                     <Typography variant="body2" color="textSecondary" component="p">
