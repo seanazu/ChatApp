@@ -33,7 +33,7 @@ const UsersComp = () => {
 
     useEffect (async()=>{
         let users = await axios.get('http://localhost:7000/users')
-        let id = sessionStorage.getItem('id')
+        const id = sessionStorage.getItem('id')
         let filteredUsers = users.data.filter(item=>item._id !== id)
         setUsers(filteredUsers)
         let user = await axios.get('http://localhost:7000/users/' + id)
