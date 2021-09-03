@@ -14,6 +14,9 @@ import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
     root: {
         maxWidth: 450,
+        margin:'auto',
+        width:'450px', 
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
       },
       media: {
         height: 140,
@@ -57,7 +60,7 @@ const GroupsComp = () => {
         return (
             <div key={index} style={{display:groupDisplay}}>
                
-            <Card  className={classes.root} style={{margin:'auto',width:'450px', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}>
+            <Card  className={classes.root} >
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 {group.name}
