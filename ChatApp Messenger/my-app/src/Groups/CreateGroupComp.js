@@ -94,7 +94,7 @@ const CreateGroupComp = () => {
 
     const createGroup = async () =>{
         let groupObj = group
-        let resp = await axios.post('http://localhost:7000/groups', groupObj)
+        await axios.post('http://localhost:7000/groups', groupObj)
         history.push('/mainpage/groupsComp')
     }
 
