@@ -135,7 +135,6 @@ const CreateGroupComp = () => {
                       required
                       fullWidth
                       label="Image"
-                      autoComplete="current-password"
                       onChange={(e)=>setGroup({...group, image:e.target.value })}
                       
                     />
