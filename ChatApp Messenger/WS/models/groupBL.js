@@ -27,15 +27,7 @@ const getGroupById = (id) =>{
 
 const addGroup = (newGroup) =>{
     return new Promise((resolve,reject) =>{
-        let group = new groupSchema ({
-             _id : newGroup._id , 
-             members : newGroup.members,
-             managers : newGroup.managers , 
-             name : newGroup.name ,
-             image : newGroup.image ,
-             status : newGroup.status ,
-             chat : newGroup.chat 
-        })
+        let group = new groupSchema (newGroup)
         group.save(err =>{
             if(err){
                 reject(err)
@@ -48,15 +40,7 @@ const addGroup = (newGroup) =>{
 
 const editGroup = (id,updatedGroup) =>{
     return new Promise ((resolve,reject) =>{
-        groupSchema.findByIdAndUpdate(id,{
-            _id : updatedGroup._id , 
-            members : updatedGroup.members,
-            managers : updatedGroup.managers , 
-            name : updatedGroup.name ,
-            image : updatedGroup.image ,
-            status : updatedGroup.status ,
-            chat : updatedGroup.chat 
-        },(err) =>{
+        groupSchema.findByIdAndUpdate(id,updatedGroup,(err) =>{
             if(err){
                 reject(err)
             }else{
