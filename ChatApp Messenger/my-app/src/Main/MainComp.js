@@ -37,10 +37,8 @@ const MainComp = () => {
               <CssBaseline />
               <HideOnScroll >
                 <AppBar style={{height:'130px',backgroundColor:'skyblue'}}>
-                  <Toolbar>
-                      <div style={{margin:'44%'}}>
-                  <img src="https://api.freelogodesign.org/files/463246c69261474caeb6025cc71ced07/thumb/logo_200x200.png?v=637617581860000000" alt="Subscription Web Site" style={{height:'200px', width:'200px',margin:'auto'}}/>
-                  </div>
+                  <Toolbar style={{display:'flex', justifyContent:'center'}}>
+                  <img src="https://api.freelogodesign.org/files/463246c69261474caeb6025cc71ced07/thumb/logo_200x200.png?v=637617581860000000" alt="Subscription Web Site" />
                   </Toolbar>
                 </AppBar>
               </HideOnScroll>
