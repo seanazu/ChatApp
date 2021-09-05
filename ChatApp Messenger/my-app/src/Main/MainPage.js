@@ -36,8 +36,11 @@ const MainPage = (props) => {
             <br/>
             <br/>
             <br/>
+            <span style={{display:'flex',justifyContent:'flex-end'}}> 
+            <Button style={{display:'flex',justifyContent:'flex-end'}} variant="contained" color="primary" onClick={()=>history.push('/')} >Log Out</Button>
+            </span>
             <br/>
-            <br/>
+            <br/> 
               <Paper square style={{margin:'auto' , width:'640px'}}>
               <Tabs
                 value={value}
@@ -50,8 +53,6 @@ const MainPage = (props) => {
                 <Tab label="Private Chats" onClick={()=> history.push('/mainpage/usersComp')} />
                 <Tab label="Groups" onClick={()=> history.push('/mainpage/groupsComp')}  />
                 <Tab label="My Info" onClick={()=> history.push('/mainpage/userInfo')}/>
-                <Tab label="Log Out" onClick={()=> history.push('/')}/>
-
               </Tabs>
             </Paper>
 
