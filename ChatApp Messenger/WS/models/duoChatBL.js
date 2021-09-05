@@ -27,13 +27,7 @@ const getDuoChatsById = (id) =>{
 
 const addDuoChat = (newChat) =>{
     return new Promise ((resolve,reject) =>{
-        let duoChat = new duoChatSchema({
-            _id : newChat._id , 
-            user1 : newChat.user1 ,
-            user2 : newChat.user2 ,
-            chat : newChat.chat
-        })
-
+        let duoChat = new duoChatSchema(newChat)
         duoChat.save(err=>{
             if(err){
                 reject(err)
@@ -46,12 +40,7 @@ const addDuoChat = (newChat) =>{
 
 const editDuoChat = (id,updatedData) =>{
     return new Promise ((resolve,reject) =>{
-        duoChatSchema.findByIdAndUpdate(id,{
-            _id : updatedData._id , 
-            user1 : updatedData.user1 ,
-            user2 : updatedData.user2 ,
-            chat : updatedData.chat
-        },(err) =>{
+        duoChatSchema.findByIdAndUpdate(id,updatedData,(err) =>{
             if(err){
                 reject(err)
             }else{
