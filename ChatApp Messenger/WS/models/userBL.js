@@ -27,18 +27,7 @@ const getUserById = (id)=>{
 
 const createNewUser = (newUser) =>{
     return new Promise((resolve,reject) =>{
-        let user = new UserSchema({
-            username: newUser.username , 
-            password : newUser.password ,
-            age : newUser.age ,
-            city : newUser.city ,
-            status : newUser.status ,
-            image : newUser.image ,
-            groups : newUser.groups , 
-            duoChats : newUser.duoChats , 
-            block : newUser.block
-        })
-
+        let user = new UserSchema(newUser)
         user.save(err=>{
             if(err){
                 reject(err)
@@ -51,17 +40,7 @@ const createNewUser = (newUser) =>{
 
 const updateUser = (id,updatedUser) =>{
     return new Promise ((resolve,reject)=>{
-        UserSchema.findByIdAndUpdate(id,{
-            username: updatedUser.username , 
-            password : updatedUser.password ,
-            age : updatedUser.age ,
-            city : updatedUser.city ,
-            status : updatedUser.status ,
-            image : updatedUser.image ,
-            groups : updatedUser.groups , 
-            duoChats : updatedUser.duoChats , 
-            block : updatedUser.block
-        },(err)=>{
+        UserSchema.findByIdAndUpdate(id,updatedUser,(err)=>{
             if(err){
                 reject(err)
             }else{
