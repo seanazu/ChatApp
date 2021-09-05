@@ -37,7 +37,7 @@ const MainPage = (props) => {
             <br/>
             <br/>
             <span style={{display:'flex',justifyContent:'flex-end'}}> 
-            <Button style={{display:'flex',justifyContent:'flex-end'}} variant="contained" color="primary" onClick={()=>history.push('/')} >Log Out</Button>
+            <Button variant="contained" color="primary" onClick={()=>history.push('/')} >Log Out</Button>
             </span>
             <br/>
             <br/> 
