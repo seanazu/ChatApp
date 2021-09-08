@@ -20,6 +20,10 @@ const useStyles = makeStyles({
       media: {
         height: 140,
       },
+    userButtons:{
+    display:'flex',
+    justifyContent:'flex-end'
+    }
 });
 
 const UsersComp = () => {
@@ -66,7 +70,7 @@ const UsersComp = () => {
               City:{user.city}
               </Typography>
             </CardContent>
-          <CardActions style={{display: 'block' , margin:' auto'}}>
+          <CardActions className={classes.userButtons}>
           <Button variant="contained" color="primary" onClick={ async()=>{
             let duoChats = await axios.get('http://localhost:7000/duoChats')
             let duoChat = duoChats.data.filter(chat=> chat._id == user._id + id ||chat._id == id + user._id)
