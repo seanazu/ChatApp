@@ -15,15 +15,15 @@ const useStyles = makeStyles({
         maxWidth: 450,
         margin:'auto',
         width:'450px', 
-        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+        boxShadow: '0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
       },
       media: {
         height: 140,
       },
-    userButtons:{
-    display:'flex',
-    justifyContent:'flex-end'
-    }
+      Buttons :{
+        display:'flex',
+        justifyContent:'center'
+      }
 });
 
 const UsersComp = () => {
@@ -32,15 +32,15 @@ const UsersComp = () => {
     const[connectedUser, setUser] = useState({})
     const[search,setSearch] = useState('')
     const[find,setFind] = useState('')
-    const[boolean,setBoolean] = useState(false)
+
+    const id = sessionStorage.getItem('id')
    
 
     useEffect (async()=>{
-        let users = await axios.get('http://localhost:7000/users')
-        const id = sessionStorage.getItem('id')
-        let filteredUsers = users.data.filter(item=>item._id !== id)
+        const users = await axios.get('http://localhost:7000/users')
+        const filteredUsers = users.data.filter(item=>item._id !== id)
         setUsers(filteredUsers)
-        let user = await axios.get('http://localhost:7000/users/' + id)
+        const user = await axios.get('http://localhost:7000/users/' + id)
         setUser(user.data) 
 
     },[])
@@ -48,16 +48,25 @@ const UsersComp = () => {
     const findUser = () =>{
       setFind(search)
     }
+
   
-  let usersObj = users.map( (user,index) =>{
-    let id = sessionStorage.getItem('id')
-    let displayUser = 'none'
-   
-      if(user.username.toLowerCase().includes(find.toLowerCase())){
+
+    let usersObj = users.map( (user,index) =>{
+      let id = sessionStorage.getItem('id')
+      let blocked = false ; 
+      if(connectedUser.block !== undefined){
+      connectedUser.block.map(item =>{
+        if(item.userId == user._id){
+          blocked = true
+        } 
+      })
+      console.log(connectedUser.block);
+      }
+      console.log(blocked);
+      let displayUser = 'none'
+      if(user.username.toLowerCase().includes(find.toLowerCase()) && blocked == false){
         displayUser='unset'
       }
-      console.log(displayUser)
-
         return (
             <div key={index} style={{display:displayUser}}>
                
@@ -70,11 +79,10 @@ const UsersComp = () => {
               City:{user.city}
               </Typography>
             </CardContent>
-          <CardActions className={classes.userButtons}>
+          <CardActions className={classes.Buttons} >
           <Button variant="contained" color="primary" onClick={ async()=>{
             let duoChats = await axios.get('http://localhost:7000/duoChats')
             let duoChat = duoChats.data.filter(chat=> chat._id == user._id + id ||chat._id == id + user._id)
-            console.log(duoChat);
             if(duoChat == false){
               let newChat = {
                 _id : user._id + id ,
@@ -89,7 +97,11 @@ const UsersComp = () => {
               history.push(`/mainpage/chatBoxComp/${duoChat[0]._id}/${id}/${connectedUser.username}`)
           }
           }} > Chat</Button>
-           <Button variant="contained" color="primary" >Block</Button> 
+          <Button variant="contained" color='primary' onClick={async()=>{
+            console.log({...connectedUser, block:[{userId:user._id}]});
+            const resp = await axios.put('http://localhost:7000/users/'+ id ,{...connectedUser, block:[{userId:user._id}]}) ;
+            alert(resp.data)
+          }} > Block </Button>
           <br/>
           </CardActions>
         </Card>
@@ -101,17 +113,13 @@ const UsersComp = () => {
     return (
         <div>
            <br/>
+            
               <TextField id="standard-basic" label='search' style={{margin:'auto'}} onChange={(e)=>{
                 setSearch(e.target.value)
                 setFind('')
               }
                  }/>{' '}
              <Button variant="contained" color="primary" onClick={findUser} > Find User</Button>
-             <button onClick={(e)=>{
-               e.preventDefault()
-                     setBoolean((prev)=> !prev);
-                     console.log("boolean",boolean)
-             }}>learning</button>
              <br/>
              <br/>
             {usersObj}
