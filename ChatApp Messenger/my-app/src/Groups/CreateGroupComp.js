@@ -21,6 +21,7 @@ const useStyles1 = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      fontSize:'xx-large'
     },
     avatar: {
       margin: theme.spacing(1),
@@ -104,7 +105,7 @@ const CreateGroupComp = () => {
            <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes1.paper}>
-              <AddCircleOutlineIcon color='secondary' style={{fontSize:'xx-large'}}/>
+              <AddCircleOutlineIcon color='secondary' />
               <Typography component="h1" variant="h5">
               Create Group
               </Typography>
