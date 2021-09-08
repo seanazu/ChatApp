@@ -88,7 +88,9 @@ const UsersComp = () => {
             }else if(duoChat){
               history.push(`/mainpage/chatBoxComp/${duoChat[0]._id}/${id}/${connectedUser.username}`)
           }
-          }} > Chat</Button><br/>
+          }} > Chat</Button>
+           <Button variant="contained" color="primary" >Block</Button> 
+          <br/>
           </CardActions>
         </Card>
         <br/>
