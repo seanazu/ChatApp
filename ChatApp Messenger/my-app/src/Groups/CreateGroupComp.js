@@ -40,7 +40,8 @@ const useStyles1 = makeStyles((theme) => ({
   root: {
     maxWidth: 450,
     margin:'auto', 
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+    fontSize:'x-large'
   },
   media: {
     height: 140,
@@ -73,7 +74,7 @@ const CreateGroupComp = () => {
         return(
             <div key ={index}>
           <Card className={classes.root} >
-                <span style={{fontSize:'x-large'}} >{user.username} </span>: <Checkbox onChange = {(e) =>{
+                <span>{user.username} </span>: <Checkbox onChange = {(e) =>{
                       if(e.target.checked == true){
                           let userObj = {
                               userId : user._id,
