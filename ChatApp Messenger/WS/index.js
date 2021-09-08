@@ -34,11 +34,7 @@ io.on('connection', (socket) =>{
     console.log('We Have A Connection!! ')
 
     socket.on('join',(name,room)=>{
-        socket.emit('message', {user:'ChatApp', message:`${name}, welcome to chat` })
-        socket.broadcast.to(room).emit('message', {user:'ChatApp',message:`${name} has joined`})
         socket.join(room)
-        
-
     })
 
     socket.on('sendMessage', (name, room ,message )=>{
