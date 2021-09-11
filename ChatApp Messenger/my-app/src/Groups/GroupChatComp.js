@@ -101,7 +101,7 @@ const GroupChatComp = (props) => {
     return (
         <div>
                <br/> 
-            <Card className="chat" className={classes.root} >
+            <Card className={classes.root} >
                 <CardContent>
                     {messageObj}
                     <Typography variant="body2" color="textSecondary" component="p">
