@@ -43,7 +43,7 @@ const GroupChatComp = (props) => {
 
     useEffect(()=>{
         socket = io(ENDPOINT)
-        socket.emit('join',name,room)
+        socket.emit('join',room)
     
     },[ENDPOINT])
 
