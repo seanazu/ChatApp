@@ -23,7 +23,7 @@ const useStyles = makeStyles({
       media: {
         height: 140,
       },
-      chat :{
+      sendMessageCard :{
        margin:'auto',
        width:'350px'
       }
@@ -110,7 +110,7 @@ const GroupChatComp = (props) => {
                 </CardContent>
             </Card>
 
-        <Card className={classes.chat}>
+        <Card className={classes.sendMessageCard}>
         <CardActions >
          <TextField
             variant="outlined"
