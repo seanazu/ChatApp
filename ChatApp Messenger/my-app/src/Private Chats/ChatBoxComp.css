@@ -5,13 +5,6 @@ body {
     align-items: center;
   }
   
-  .chat {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-  
   .messages {
     margin-top: 30px;
     display: flex;
