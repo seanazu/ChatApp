@@ -20,6 +20,10 @@ const useStyles = makeStyles({
     media: {
       height: 140,
     },
+    sendMessageCard : {
+      margin:'auto',
+      width:'350px'
+    }
 });
 
 const ChatBoxComp = (props) => {
@@ -32,9 +36,10 @@ const ChatBoxComp = (props) => {
   let room = props.match.params.room  
   let name = props.match.params.username 
   let id = props.match.params.userId 
+  let socket;
 
   useEffect( ()=>{
-      let socket = io(ENDPOINT)
+      socket = io(ENDPOINT)
       socket.emit('join',room)
      
     },[ENDPOINT])
@@ -91,7 +96,7 @@ const ChatBoxComp = (props) => {
     return (
       <div>
              <br/> 
-         <Card className="chat" className={classes.root} >
+         <Card className={classes.root} >
             <CardContent>
               
                {messagesObj}
@@ -102,8 +107,8 @@ const ChatBoxComp = (props) => {
          
          
         </Card> 
-        <Card style={{margin:'auto',width:'350px'}}>
-        <CardActions >
+        <Card >
+        <CardActions className={classes.sendMessageCard} >
          <TextField
             variant="outlined"
             margin="normal"
