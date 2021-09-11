@@ -10,12 +10,11 @@ import { TextField } from '@material-ui/core';
 import io from 'socket.io-client';
 import axios from 'axios'
 
-
 const useStyles = makeStyles({
   root: {
       maxWidth: 450,
       margin:'auto',
-      width:'450px',
+      width:'450px', 
       boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
     },
     media: {
@@ -30,13 +29,13 @@ const ChatBoxComp = (props) => {
   const[message,setMessage] = useState('')
   const[messages, setMessages] = useState([]);
 
-  const room = props.match.params.room  
-  const name = props.match.params.username 
-  const id = props.match.params.userId 
+  let room = props.match.params.room  
+  let name = props.match.params.username 
+  let id = props.match.params.userId 
 
   useEffect( ()=>{
       let socket = io(ENDPOINT)
-      socket.emit('join',name ,room)
+      socket.emit('join',room)
      
     },[ENDPOINT])
 
@@ -77,7 +76,7 @@ const ChatBoxComp = (props) => {
 
   let messagesObj = messages.map((item,index) =>{
     let messageClass = "yours messages"
-    if(item.userId == id){
+    if(item.userId == id || item.user == name){
       messageClass = "mine messages"
     }
     return(
