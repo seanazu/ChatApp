@@ -33,8 +33,7 @@ app.use('/groups',groupController)
 io.on('connection', (socket) =>{
     console.log('We Have A Connection!! ')
 
-    socket.on('join',(name,room)=>{
-        socket.broadcast.to(room).emit('message', {user:'ChatApp',message:`${name} has joined`})
+    socket.on('join',(room)=>{
         socket.join(room)
     })
 
