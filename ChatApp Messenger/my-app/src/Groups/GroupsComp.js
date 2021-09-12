@@ -21,6 +21,10 @@ const useStyles = makeStyles({
       media: {
         height: 140,
       },
+      group : {
+        display:'flex',
+        justifyContent:'center'
+      }
 });
 
 
@@ -69,7 +73,7 @@ const GroupsComp = () => {
               Status:{group.status}
               </Typography>
             </CardContent>
-          <CardActions style={{marginLeft:'182px'}}>
+          <CardActions className={classes.group} >
           <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
           </CardActions>
         </Card>
