@@ -89,7 +89,7 @@ const GroupsComp = () => {
             <br/>
             <br/>
             <Link to="/mainpage/createGroup"><Button variant="contained" color="primary"  > Create Group </Button></Link>{' '}
-            <TextField id="standard-basic" label='search' style={{margin:'auto'}} onChange={(e)=>{
+            <TextField id="standard-basic" label='search' onChange={(e)=>{
               setSearch(e.target.value) ;
               setFind('')
             }} />{' '}
