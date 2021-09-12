@@ -9,6 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 function HideOnScroll(props) {
@@ -28,16 +29,28 @@ function HideOnScroll(props) {
     window: PropTypes.func,
   };
 
+  const useStyles = makeStyles({
+    appBar :{
+      backgroundColor:'skyblue',
+      height:'130px'
+    },
+    toolBar : {
+      display:'flex', 
+      justifyContent:'center',
+    }
+  });
+
 
 const MainComp = () => {
+  const classes = useStyles()
     
     return (
         <div>
              <React.Fragment>
               <CssBaseline />
               <HideOnScroll >
-                <AppBar style={{height:'130px',backgroundColor:'skyblue'}}>
-                  <Toolbar style={{display:'flex', justifyContent:'center'}}>
+                <AppBar className={classes.appBar}>
+                  <Toolbar className={classes.toolBar}>
                   <img src="https://api.freelogodesign.org/files/463246c69261474caeb6025cc71ced07/thumb/logo_200x200.png?v=637617581860000000" alt="Subscription Web Site" />
                   </Toolbar>
                 </AppBar>
