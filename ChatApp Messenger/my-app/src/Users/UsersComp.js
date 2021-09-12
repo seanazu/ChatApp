@@ -20,7 +20,7 @@ const useStyles = makeStyles({
       media: {
         height: 140,
       },
-      Buttons :{
+      userCardButtons :{
         display:'flex',
         justifyContent:'center'
       }
@@ -79,7 +79,7 @@ const UsersComp = () => {
               City:{user.city}
               </Typography>
             </CardContent>
-          <CardActions className={classes.Buttons} >
+          <CardActions className={classes.userCardButtons} >
           <Button variant="contained" color="primary" onClick={ async()=>{
             let duoChats = await axios.get('http://localhost:7000/duoChats')
             let duoChat = duoChats.data.filter(chat=> chat._id == user._id + id ||chat._id == id + user._id)
@@ -114,7 +114,7 @@ const UsersComp = () => {
         <div>
            <br/>
             
-              <TextField id="standard-basic" label='search' style={{margin:'auto'}} onChange={(e)=>{
+              <TextField id="standard-basic" label='search' onChange={(e)=>{
                 setSearch(e.target.value)
                 setFind('')
               }
