@@ -72,8 +72,8 @@ const GroupsComp = () => {
             <Card  className={classes.root} >
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
+              <img src={group.image} className={classes.groupImage} alt="No Image"/><br/>
                 {group.name}
-                <img src={group.image} className={classes.groupImage} alt="No Image"/>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
               Status:{group.status}
