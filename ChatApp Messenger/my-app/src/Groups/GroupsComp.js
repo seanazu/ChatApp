@@ -24,6 +24,11 @@ const useStyles = makeStyles({
       group : {
         display:'flex',
         justifyContent:'center'
+      },
+      groupImage :{
+        width:'70px',
+        height:'70px',
+        borderRadius:'70px',
       }
 });
 
