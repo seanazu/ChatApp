@@ -11,11 +11,19 @@ import ChatBoxComp from '../Private Chats/ChatBoxComp'
 import UserInfoComp from '../User Info/UserInfoComp';
 import CreateGroupComp from '../Groups/CreateGroupComp';
 import GroupChatComp from '../Groups/GroupChatComp';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles({
+    paper: {
+      margin:'auto' , 
+      width:'640px'
+      }
+});
 
 
 
 const MainPage = (props) => {
+  const classes = useStyles()
   const [value, setValue] = React.useState(2);
 
   useEffect(()=>{
@@ -41,7 +49,7 @@ const MainPage = (props) => {
             </span>
             <br/>
             <br/> 
-              <Paper square style={{margin:'auto' , width:'640px'}}>
+              <Paper square className={classes.paper}>
               <Tabs
                 value={value}
                 indicatorColor="primary"
