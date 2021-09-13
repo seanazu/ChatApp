@@ -44,7 +44,7 @@ const editDuoChat = (id,updatedData) =>{
             if(err){
                 reject(err)
             }else{
-                resolve('Duo Chat Updated')
+                resolve('Chat Updated')
             }
         })
     })
@@ -56,7 +56,7 @@ const deleteDuoChat = (id) =>{
             if(err){
                 reject(err)
             }else{
-                resolve("Chat Deleted")
+                resolve("Conversation deleted")
             }
         })
     })
