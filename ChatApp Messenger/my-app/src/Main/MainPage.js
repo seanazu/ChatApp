@@ -17,7 +17,11 @@ const useStyles = makeStyles({
     paper: {
       margin:'auto' , 
       width:'640px'
-      }
+      },
+    logOut:{
+    display:'flex',
+    justifyContent:'flex-end'
+    }
 });
 
 
