@@ -48,7 +48,7 @@ const MainPage = (props) => {
             <br/>
             <br/>
             <br/>
-            <span style={{display:'flex',justifyContent:'flex-end'}}> 
+            <span > 
             <Button variant="contained" color="primary" onClick={()=>history.push('/')} >Log Out</Button>
             </span>
             <br/>
