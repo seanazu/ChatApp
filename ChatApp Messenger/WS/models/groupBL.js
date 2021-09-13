@@ -44,7 +44,7 @@ const editGroup = (id,updatedGroup) =>{
             if(err){
                 reject(err)
             }else{
-                resolve("Group Updated")
+                resolve("Group updated")
             }
         })
     })
