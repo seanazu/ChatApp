@@ -49,7 +49,7 @@ const SignUpComponent =  () => {
             let resp = await axios.post('http://localhost:7000/users',newUser )
             if(resp.data){
                 alert(resp.data)
-                history.push('/mainpage/usersComp')
+                history.push('/')
             }else{
                 alert("Error Occurred")
             }
