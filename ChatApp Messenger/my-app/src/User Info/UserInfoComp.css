@@ -43,7 +43,8 @@ body {
 }
 
 .img-radius {
-    border-radius: 50px
+    border-radius: 50px;
+    height:'250px'
 }
 
 h6 {
