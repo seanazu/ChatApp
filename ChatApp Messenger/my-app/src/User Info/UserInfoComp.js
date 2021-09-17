@@ -19,7 +19,7 @@ const UserInfoComp = () => {
                                 <div className="row m-l-0 m-r-0">
                                     <div className="col-sm-4 bg-c-lite-green user-profile">
                                         <div className="card-block text-center text-white">
-                                            <div className="m-b-25"> <img src={user.image} className="img-radius" alt="User-Profile-Image" style={{height:'250px'}}/> </div>
+                                            <div className="m-b-25"> <img src={user.image} className="img-radius" alt="User-Profile-Image"/> </div>
                                             <h6 className="f-w-600">{user.username}</h6>
                                             <p>{user.status}</p> <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                         </div>
