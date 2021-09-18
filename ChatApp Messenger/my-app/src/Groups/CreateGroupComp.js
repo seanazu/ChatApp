@@ -82,11 +82,8 @@ const CreateGroupComp = () => {
                               userId : user._id,
                               username : user.username
                           }
-                          let membersArray =  group.members
                           membersArray.push(userObj)
                           setGroup({...group, members :membersArray})
-                          setNumbers(numbers + 2)
-                          console.log("numbers == 2",numbers);
                       }
                   }}   />
                 <br/>
