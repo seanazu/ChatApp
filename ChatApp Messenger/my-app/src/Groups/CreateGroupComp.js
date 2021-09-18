@@ -55,7 +55,9 @@ const CreateGroupComp = () => {
     const classes = useStyles();
     const[users, setUsers] = useState([])
     const[numbers, setNumbers] = useState(0)
-    const[group , setGroup] = useState({})
+    const[group , setGroup] = useState({
+        _id:id
+    })
     
 
     useEffect(async ()=>{
