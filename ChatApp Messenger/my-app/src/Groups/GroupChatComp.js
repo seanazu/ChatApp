@@ -26,6 +26,10 @@ const useStyles = makeStyles({
       sendMessageCard :{
        margin:'auto',
        width:'350px'
+      }.
+      deleteButton : {
+          display:'flex',
+          justifyContent:'flex-end'
       }
   });
   
