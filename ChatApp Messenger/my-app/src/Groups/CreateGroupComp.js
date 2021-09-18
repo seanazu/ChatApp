@@ -54,7 +54,7 @@ const CreateGroupComp = () => {
     const [id] = useState(_uniqueId('prefix-'))
     const classes = useStyles();
     const[users, setUsers] = useState([])
-    const[numbers, setNumbers] = useState(0)
+    const[membersArray, setMembers] = useState([])
     const[group , setGroup] = useState({
         _id:id
     })
