@@ -100,6 +100,7 @@ const GroupChatComp = (props) => {
 
     return (
         <div>
+            <Button variant="outlined" color="secondary" className={classes.deleteButton}>Delete Group</Button>
                <br/> 
             <Card className={classes.root} >
                 <CardContent>
