@@ -33,10 +33,10 @@ const ChatBoxComp = (props) => {
   const[message,setMessage] = useState('')
   const[messages, setMessages] = useState([]);
 
-  let room = props.match.params.room  
-  let name = props.match.params.username 
-  let id = props.match.params.userId 
-  let socket;
+  const room = props.match.params.room  
+  const name = props.match.params.username 
+  const id = props.match.params.userId 
+  const socket;
 
   useEffect( ()=>{
       socket = io(ENDPOINT)
