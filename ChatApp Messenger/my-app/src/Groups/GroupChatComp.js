@@ -41,8 +41,8 @@ const GroupChatComp = (props) => {
     const[message,setMessage] = useState('')
     const[messages, setMessages] = useState([]);
 
-    let room = props.match.params.room
-    let name = props.match.params.username
+    const room = props.match.params.room
+    const name = props.match.params.username
     let id = props.match.params.userId
 
     useEffect(()=>{
