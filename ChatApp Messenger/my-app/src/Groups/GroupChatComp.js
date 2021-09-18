@@ -43,7 +43,7 @@ const GroupChatComp = (props) => {
 
     const room = props.match.params.room
     const name = props.match.params.username
-    let id = props.match.params.userId
+    const id = props.match.params.userId
 
     useEffect(()=>{
         socket = io(ENDPOINT)
