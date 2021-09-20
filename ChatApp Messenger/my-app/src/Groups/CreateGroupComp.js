@@ -15,20 +15,22 @@ import _uniqueId from 'lodash.uniqueid';
 
 
 
+
+
+
 const useStyles1 = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      fontSize:'xx-large'
     },
     avatar: {
       margin: theme.spacing(1),
       backgroundColor: theme.palette.secondary.main,
     },
     form: {
-      width: '100%', 
+      width: '100%', // Fix IE 11 issue.
       marginTop: theme.spacing(3),
     },
     submit: {
@@ -39,9 +41,6 @@ const useStyles1 = makeStyles((theme) => ({
   const useStyles = makeStyles({
   root: {
     maxWidth: 450,
-    margin:'auto', 
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-    fontSize:'x-large'
   },
   media: {
     height: 140,
@@ -54,20 +53,19 @@ const CreateGroupComp = () => {
     const [id] = useState(_uniqueId('prefix-'))
     const classes = useStyles();
     const[users, setUsers] = useState([])
-    const[membersArray, setMembers] = useState([])
     const[group , setGroup] = useState({
-        _id:id
+        _id: 'prefix-44',
     })
+    const membersArray = [] ;
     
 
     useEffect(async ()=>{
-        const users = await axios.get('http://localhost:7000/users')
+        let users = await axios.get('http://localhost:7000/users')
         setUsers(users.data)
         let managerArray = []
         let managerObj = {
             userId : sessionStorage.getItem('id')
         }
-        setId(id)
         managerArray.push(managerObj)
         setGroup({...group, managers:managerArray})
     },[])
@@ -75,8 +73,8 @@ const CreateGroupComp = () => {
     let usersObj = users.map((user,index) =>{
         return(
             <div key ={index}>
-          <Card className={classes.root} >
-                <span>{user.username} </span>: <Checkbox onChange = {(e) =>{
+          <Card className={classes.root} style={{margin:'auto', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}>
+                <span style={{fontSize:'x-large'}} >{user.username} </span>: <Checkbox onChange = {(e) =>{
                       if(e.target.checked == true){
                           let userObj = {
                               userId : user._id,
@@ -95,7 +93,8 @@ const CreateGroupComp = () => {
 
     const createGroup = async () =>{
         let groupObj = group
-        await axios.post('http://localhost:7000/groups', groupObj)
+        let resp = await axios.post('http://localhost:7000/groups', groupObj)
+        alert(resp)
         history.push('/mainpage/groupsComp')
     }
 
@@ -105,7 +104,7 @@ const CreateGroupComp = () => {
            <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes1.paper}>
-              <AddCircleOutlineIcon color='secondary' />
+              <AddCircleOutlineIcon color='secondary' style={{fontSize:'xx-large'}}/>
               <Typography component="h1" variant="h5">
               Create Group
               </Typography>
@@ -136,6 +135,7 @@ const CreateGroupComp = () => {
                       required
                       fullWidth
                       label="Image"
+                      autoComplete="current-password"
                       onChange={(e)=>setGroup({...group, image:e.target.value })}
                       
                     />
