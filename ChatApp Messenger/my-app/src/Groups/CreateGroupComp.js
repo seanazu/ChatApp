@@ -47,6 +47,9 @@ const useStyles1 = makeStyles((theme) => ({
   media: {
     height: 140,
   },
+  username:{
+  fontSize:'x-large'
+  }
 });
   
 
@@ -76,7 +79,7 @@ const CreateGroupComp = () => {
         return(
             <div key ={index}>
           <Card className={classes.root} >
-                <span style={{fontSize:'x-large'}} >{user.username} </span>: <Checkbox onChange = {(e) =>{
+                <span className={classes.username}>{user.username} </span>: <Checkbox onChange = {(e) =>{
                       if(e.target.checked == true){
                           let userObj = {
                               userId : user._id,
