@@ -21,14 +21,20 @@ const useStyles = makeStyles({
       media: {
         height: 140,
       },
-      group : {
+      groupChat : {
         display:'flex',
         justifyContent:'center'
       },
       groupImage :{
-        width:'70px',
-        height:'70px',
+        width:'55px',
+        height:'55px',
         borderRadius:'70px',
+        fontSize:'small'
+      },
+      nameAndImage : {
+        display:'flex',
+        justifyContent:'space-between'
+
       }
 });
 
@@ -40,11 +46,12 @@ const GroupsComp = () => {
     const[user, setUser] = useState({})
     const[search,setSearch] = useState('')
     const[find,setFind] = useState('')
+
     
     useEffect (async()=>{
-        let groups = await axios.get('http://localhost:7000/groups')
+        const groups = await axios.get('http://localhost:7000/groups')
         setGroups(groups.data)
-        let user = await axios.get('http://localhost:7000/users/' + sessionStorage.getItem('id'))
+        const user = await axios.get('http://localhost:7000/users/' + sessionStorage.getItem('id'))
         setUser(user.data)
     },[])
 
@@ -59,30 +66,44 @@ const GroupsComp = () => {
           checkIfUserInGroup =  true
         }
       })
-      console.log(find);
       let groupDisplay = 'none';
       if(checkIfUserInGroup == true && group.name.toLowerCase().includes(find.toLowerCase()) ){
         groupDisplay="unset"
       }else if(checkIfUserInGroup == false){
         groupDisplay='none'
       }
+      let isManager = false ;  
+      group.managers.map(manager =>{
+        if(manager.userId == sessionStorage.getItem('id')){
+          isManager = true
+          
+        }
+      })
+      console.log(isManager);
+      let editGroup = 'collapse'
+      if(isManager){
+        editGroup = 'unset' ;
+      }
+
         return (
             <div key={index} style={{display:groupDisplay}}>
                
             <Card  className={classes.root} >
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-              <img src={group.image} className={classes.groupImage} alt="No Image"/><br/>
+              <Typography className={classes.nameAndImage} variant="h5" component="h2">
+                <img src={group.image} className={classes.groupImage} alt="No Image"/>
                 {group.name}
+                <Button style={{visibility:editGroup,height:'35px',width:'65px', fontSize:'xx-small'}} variant='contained' color ="secondary">Edit Group</Button>
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body1" color="textSecondary" component="p">
               Status:{group.status}
               </Typography>
             </CardContent>
-          <CardActions className={classes.group} >
+          <CardActions className={classes.groupChat}>
           <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
           </CardActions>
         </Card>
+        
         <br/>
         </div>
         )
@@ -91,7 +112,7 @@ const GroupsComp = () => {
 
 
     return (
-        <div>
+        <div >
             <br/>
             <br/>
             <Link to="/mainpage/createGroup"><Button variant="contained" color="primary"  > Create Group </Button></Link>{' '}
