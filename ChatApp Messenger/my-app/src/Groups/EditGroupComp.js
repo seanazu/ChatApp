@@ -82,6 +82,7 @@ const EditGroupComp = () => {
                 <br/>
                 <Typography>
                     Group Members: 
+
                 </Typography>
 
                 <br/>
