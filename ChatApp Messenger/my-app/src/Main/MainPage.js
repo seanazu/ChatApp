@@ -12,6 +12,7 @@ import UserInfoComp from '../User Info/UserInfoComp';
 import CreateGroupComp from '../Groups/CreateGroupComp';
 import GroupChatComp from '../Groups/GroupChatComp';
 import { makeStyles } from '@material-ui/core/styles';
+import EditGroupComp from '../Groups/EditGroupComp';
 
 const useStyles = makeStyles({
     paper: {
