@@ -93,7 +93,7 @@ const GroupsComp = () => {
               <Typography className={classes.nameAndImage} variant="h5" component="h2">
                 <img src={group.image} className={classes.groupImage} alt="No Image"/>
                 {group.name}
-                 <Link to={`/mainpage/groupChatComp/${group._id}`}><Button style={{visibility:editGroupButton,height:'35px',width:'65px', fontSize:'xx-small'}}
+                 <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroupButton,height:'35px',width:'65px', fontSize:'xx-small'}}
                  variant='contained' color ="secondary">Edit Group</Button></Link>
               </Typography>
               <Typography variant="body1" color="textSecondary" component="p">
