@@ -13,7 +13,7 @@ import { Card, Checkbox } from '@material-ui/core';
 import history from '../history';
 import _uniqueId from 'lodash.uniqueid';
 
-const useStyles1 = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
@@ -38,16 +38,18 @@ const useStyles1 = makeStyles((theme) => ({
 
 
 const EditGroupComp = () => {
+    const classes = useStyles();
+    
     return (
         <div>
              <Container component="main" maxWidth="xs">
             <CssBaseline />
-            <div className={classes1.paper}>
+            <div className={classes.paper}>
               <AddCircleOutlineIcon color='secondary' style={{fontSize:'xx-large'}}/>
               <Typography component="h1" variant="h5">
               Create Group
               </Typography>
-              <form className={classes1.form} noValidate>
+              <form className={classes.form} noValidate>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
