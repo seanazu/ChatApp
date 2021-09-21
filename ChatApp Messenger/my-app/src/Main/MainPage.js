@@ -74,6 +74,7 @@ const MainPage = (props) => {
                 <Route path= "/mainpage/groupsComp" component={GroupsComp} />
                 <Route path= "/mainpage/groupChatComp/:room/:userId/:username" component={GroupChatComp} />
                 <Route path= "/mainpage/createGroup" component={CreateGroupComp} />
+                <Route path= "/mainpage/editGroupComp/:groupId" component={EditGroupComp} />
                 <Route path= "/mainpage/chatBoxComp/:room/:userId/:username" component={ChatBoxComp} />
                 <Route path= "/mainpage/userInfo" component={UserInfoComp} />
 
