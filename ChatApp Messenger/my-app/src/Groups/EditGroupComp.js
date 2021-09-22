@@ -53,6 +53,12 @@ const EditGroupComp = () => {
      
       
     },[])
+    managers.map((manager,index) =>{
+        return(
+        )
+    })
+    
+    
     
     return (
         <div>
