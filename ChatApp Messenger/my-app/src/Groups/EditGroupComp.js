@@ -41,6 +41,17 @@ const EditGroupComp = () => {
     const classes = useStyles();
     const[group, setGroup] = useState({})
     
+    useEffect(()=>{
+    axios.get('http://localhost:7000/groups/'+props.match.params.groupId).then((group)=>{
+      setGroup(group.data)
+      const managers = []
+      group.data.managers.map(manager =>{
+        managers.push(manager.username)
+      })
+    })
+      
+    },[])
+    
     return (
         <div>
              <Container component="main" maxWidth="xs">
