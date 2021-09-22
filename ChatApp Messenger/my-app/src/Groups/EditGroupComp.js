@@ -55,6 +55,9 @@ const EditGroupComp = () => {
     },[])
     managers.map((manager,index) =>{
         return(
+            <div key={index}>
+            {manager}
+            </div>
         )
     })
     
