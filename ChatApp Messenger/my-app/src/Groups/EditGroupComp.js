@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const EditGroupComp = () => {
     const classes = useStyles();
     const[group, setGroup] = useState({})
-    
+    const[managers,setManagers] = useState([])
     useEffect(()=>{
     axios.get('http://localhost:7000/groups/'+props.match.params.groupId).then((group)=>{
       setGroup(group.data)
@@ -48,7 +48,9 @@ const EditGroupComp = () => {
       group.data.managers.map(manager =>{
         managers.push(manager.username)
       })
+      setManagers(managers)  
     })
+     
       
     },[])
     
