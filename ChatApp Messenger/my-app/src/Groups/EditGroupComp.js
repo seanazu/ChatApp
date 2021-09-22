@@ -53,7 +53,7 @@ const EditGroupComp = () => {
      
       
     },[])
-    managers.map((manager,index) =>{
+    const managersUsernames =managers.map((manager,index) =>{
         return(
             <div key={index}>
             {manager}
@@ -104,8 +104,8 @@ const EditGroupComp = () => {
                 </Grid>
                 <br/>
                 <Typography>
-                    Group Members: 
-
+                    Group Members:
+                   {managersUsernames}
                 </Typography>
 
                 <br/>
