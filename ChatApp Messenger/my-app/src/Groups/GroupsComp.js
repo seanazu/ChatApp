@@ -31,11 +31,6 @@ const useStyles = makeStyles({
         borderRadius:'70px',
         fontSize:'small'
       },
-      nameAndImage : {
-        display:'flex',
-        justifyContent:'space-between'
-
-      }
 });
 
 
