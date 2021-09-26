@@ -90,22 +90,20 @@ const GroupsComp = () => {
 
         return (
             <div key={index} style={{display:groupDisplay}}>
-               
             <Card  className={classes.root} >
             <CardContent>
               <Typography className={classes.nameAndImage} variant="h5" component="h2">
                 <img src={group.image} className={classes.groupImage} alt="No Image"/>
-                {group.name}
-                 <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroupButton,height:'35px',width:'65px', fontSize:'xx-small'}}
-                 variant='contained' color ="secondary">Edit Group</Button></Link>
+            <CardContent >
+              <Typography variant="h5" component="h2">
+                <span className={classes.groupName}>{group.name}</span>
               </Typography>
               <Typography variant="body1" color="textSecondary" component="p">
               Status:{group.status}
-              </Typography>
+              </Typography>  <br/>
+              <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
             </CardContent>
-          <CardActions className={classes.groupChat}>
-          <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
-          </CardActions>
+          <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroupButton}} className={classes.editGroupButton} variant='contained' color ="secondary">Edit Group</Button></Link>
         </Card>
         
         <br/>
