@@ -22,10 +22,6 @@ const useStyles = makeStyles({
       media: {
         height: 140,
       },
-      groupChat : {
-        display:'flex',
-        justifyContent:'center'
-      },
       editGroupButton : {
         fontSize:'xx-small',
         float:'right',
