@@ -99,6 +99,7 @@ const GroupsComp = () => {
               <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
             </CardContent>
           <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroupButton}} className={classes.editGroupButton} variant='contained' color ="secondary">Edit Group</Button></Link>
+          <Button variant="contained" color="primary"> Delete</Button>
         </Card>
         
         <br/>
