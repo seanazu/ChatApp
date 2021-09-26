@@ -27,12 +27,18 @@ const useStyles = makeStyles({
         display:'flex',
         justifyContent:'center'
       },
+      editGroupButton : {
+        fontSize:'xx-small',
+        float:'right',
+        width:'55px',
+        height:'30px'
+      },
       groupImage :{
         width:'55px',
         height:'55px',
         borderRadius:'70px',
         fontSize:'small'
-      },
+      }
 });
 
 
