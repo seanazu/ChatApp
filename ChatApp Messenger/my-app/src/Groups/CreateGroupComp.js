@@ -15,9 +15,6 @@ import _uniqueId from 'lodash.uniqueid';
 
 
 
-
-
-
 const useStyles1 = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -65,10 +62,10 @@ const CreateGroupComp = () => {
     
 
     useEffect(async ()=>{
-        let users = await axios.get('http://localhost:7000/users')
+        const users = await axios.get('http://localhost:7000/users')
         setUsers(users.data)
         let managerArray = []
-        let managerObj = {
+        const managerObj = {
             userId : sessionStorage.getItem('id')
         }
         managerArray.push(managerObj)
@@ -97,8 +94,8 @@ const CreateGroupComp = () => {
     })
 
     const createGroup = async () =>{
-        let groupObj = group
-        let resp = await axios.post('http://localhost:7000/groups', groupObj)
+        const groupObj = group
+        const resp = await axios.post('http://localhost:7000/groups', groupObj)
         alert(resp)
         history.push('/mainpage/groupsComp')
     }
