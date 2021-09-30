@@ -52,7 +52,7 @@ const UsersComp = () => {
   
 
     let usersObj = users.map( (user,index) =>{
-      let id = sessionStorage.getItem('id')
+      const id = sessionStorage.getItem('id')
       let blocked = false ; 
       if(connectedUser.block !== undefined){
       connectedUser.block.map(item =>{
@@ -82,7 +82,7 @@ const UsersComp = () => {
           <CardActions className={classes.userCardButtons} >
           <Button variant="contained" color="primary" onClick={ async()=>{
             let duoChats = await axios.get('http://localhost:7000/duoChats')
-            let duoChat = duoChats.data.filter(chat=> chat._id == user._id + id ||chat._id == id + user._id)
+            const duoChat = duoChats.data.filter(chat=> chat._id == user._id + id ||chat._id == id + user._id)
             if(duoChat == false){
               let newChat = {
                 _id : user._id + id ,
@@ -90,7 +90,7 @@ const UsersComp = () => {
                 user2: user._id ,
                 chat : []
               }
-              let resp = await axios.post('http://localhost:7000/duoChats',newChat)
+              const resp = await axios.post('http://localhost:7000/duoChats',newChat)
               alert(resp.data);
               history.push(`/mainpage/chatBoxComp/${newChat._id}/${id}/${connectedUser.username}`)
             }else if(duoChat){
