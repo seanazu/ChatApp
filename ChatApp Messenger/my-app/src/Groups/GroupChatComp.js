@@ -64,14 +64,14 @@ const GroupChatComp = (props) => {
 
     const sendMessage = (e) =>{
         e.preventDefault()
-        let messageObj = {
+        const messageObj = {
             userId:id,
             message:message,
             username : name
         }
         let chatArray = chat.chat
         chatArray.push(messageObj)
-        let groupObj = {...chat, messages:chatArray}
+        const groupObj = {...chat, messages:chatArray}
         axios.put('http://localhost:7000/groups/' + room, groupObj).then(resp=>{
             alert(resp.data)
         })
