@@ -5,7 +5,7 @@ import './UserInfoComp.css'
 const UserInfoComp = () => {
     const[user,setUser] = useState({})
     useEffect(async()=>{
-        let user = await axios.get("http://localhost:7000/users/"+ sessionStorage.getItem('id'))
+        const user = await axios.get("http://localhost:7000/users/"+ sessionStorage.getItem('id'))
         setUser(user.data)
     },[])
     
