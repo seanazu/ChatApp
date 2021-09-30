@@ -46,7 +46,7 @@ const SignUpComponent =  () => {
         const createNewUser = async()=>{
             if(user.username && user.password && user.age&& user.city&& user.status&& user.image ){
             let newUser = user
-            let resp = await axios.post('http://localhost:7000/users',newUser )
+            const resp = await axios.post('http://localhost:7000/users',newUser )
             if(resp.data){
                 alert(resp.data)
                 history.push('/')
