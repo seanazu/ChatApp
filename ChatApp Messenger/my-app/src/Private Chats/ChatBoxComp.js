@@ -48,7 +48,7 @@ const ChatBoxComp = (props) => {
     socket.on('message', message =>{
       setMessages(messages => [...messages, message])
     })
-    let duoChat = await axios.get('http://localhost:7000/duoChats/'+room)
+    const duoChat = await axios.get('http://localhost:7000/duoChats/'+room)
     setMessages(duoChat.data.chat)
     setChat(duoChat.data)
   }, [])
@@ -58,19 +58,19 @@ const ChatBoxComp = (props) => {
 
   const sendMessage =async (e) =>{
     e.preventDefault()
-    let messageObj = {
+    const messageObj = {
       userId : sessionStorage.getItem('id'),
       message : message
     }
     let chatArray = duoChat.chat 
     chatArray.push(messageObj)
-    let duoChatObj = {
+    const duoChatObj = {
       _id: duoChat._id , 
       user1 : duoChat.user1 ,
       user2 :  duoChat.user2 ,
       chat : chatArray
     }
-    let resp = await axios.put('http://localhost:7000/duoChats/'+room, duoChatObj)
+    const resp = await axios.put('http://localhost:7000/duoChats/'+room, duoChatObj)
     alert(resp.data)
     if(message){
       socket.emit('sendMessage',name, room, message ,() =>{setMessage('')}) 
@@ -79,7 +79,7 @@ const ChatBoxComp = (props) => {
   }
 
 
-  let messagesObj = messages.map((item,index) =>{
+  const messagesObj = messages.map((item,index) =>{
     let messageClass = "yours messages"
     if(item.userId == id || item.user == name){
       messageClass = "mine messages"
