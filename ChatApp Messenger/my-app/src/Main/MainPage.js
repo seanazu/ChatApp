@@ -32,7 +32,7 @@ const MainPage = (props) => {
   const [value, setValue] = React.useState(2);
 
   useEffect(()=>{
-   let id = props.match.params.id
+   const id = props.match.params.id
    if(id == false){
      history.push('/')
    }
