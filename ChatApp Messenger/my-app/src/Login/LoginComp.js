@@ -16,9 +16,9 @@ const LoginComp = () => {
     },[])
 
     const CheckData = async() =>{
-            let users = await axios.get("http://localhost:7000/users")
+        const users = await axios.get("http://localhost:7000/users")
         let usersArr = users.data
-        let userData = usersArr.filter(item =>item.username == user.username
+        const userData = usersArr.filter(item =>item.username == user.username
              && item.password == user.password )
         console.log(userData[0])
         if(userData[0] && user.password ){
