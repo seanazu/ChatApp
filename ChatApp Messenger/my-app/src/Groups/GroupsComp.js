@@ -86,10 +86,10 @@ const GroupsComp = () => {
 
         return (
             <div key={index} style={{display:groupDisplay}}>
-            <Card  className={classes.root} >
-            <CardContent>
+            <Card className={classes.root} >
               <Typography className={classes.nameAndImage} variant="h5" component="h2">
                 <img src={group.image} className={classes.groupImage} alt="No Image"/>
+                </Typography>
             <CardContent >
               <Typography variant="h5" component="h2">
                 <span className={classes.groupName}>{group.name}</span>
@@ -99,7 +99,7 @@ const GroupsComp = () => {
               </Typography>  <br/>
               <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
             </CardContent>
-          <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroupButton}} className={classes.editGroupButton} variant='contained' color ="secondary">Edit Group</Button></Link>
+          <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroup}} className={classes.editGroupButton} variant='contained' color ="secondary">Edit Group</Button></Link>
           <Button variant="contained" color="primary"> Delete</Button>
         </Card>
         
