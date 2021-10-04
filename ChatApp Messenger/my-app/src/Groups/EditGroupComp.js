@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const EditGroupComp = () => {
+const EditGroupComp = (props) => {
     const classes = useStyles();
     const[group, setGroup] = useState({})
     const[managers,setManagers] = useState([])
