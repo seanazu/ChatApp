@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {Switch, Route, Link } from 'react-router-dom';
 import UsersComp from '../Users/UsersComp'
-import './MainComp.css'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
@@ -13,6 +12,7 @@ import CreateGroupComp from '../Groups/CreateGroupComp';
 import GroupChatComp from '../Groups/GroupChatComp';
 import { makeStyles } from '@material-ui/core/styles';
 import EditGroupComp from '../Groups/EditGroupComp';
+import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles({
     paper: {
