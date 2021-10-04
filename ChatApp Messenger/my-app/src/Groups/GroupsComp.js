@@ -17,11 +17,16 @@ const useStyles = makeStyles({
         width:'450px', 
         height:'150px',
         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-        display:'flex',
-        justifyContent:'space-between'
       },
       media: {
         height: 140,
+      },
+      groupImage :{
+        width:'55px',
+        height:'55px',
+        borderRadius:'70px',
+        fontSize:'small',
+        float:'left'
       },
       editGroupButton : {
         fontSize:'xx-small',
@@ -29,12 +34,7 @@ const useStyles = makeStyles({
         width:'55px',
         height:'30px'
       },
-      groupImage :{
-        width:'55px',
-        height:'55px',
-        borderRadius:'70px',
-        fontSize:'small'
-      }
+      
 });
 
 
@@ -58,7 +58,7 @@ const GroupsComp = () => {
       setFind(search)
     }
 
-    let usersObj = groups.map((group,index) =>{
+    const groupsObj = groups.map((group,index) =>{
       let checkIfUserInGroup = false
       group.members.map(member=>{
         if(member.username == user.username){
@@ -78,29 +78,28 @@ const GroupsComp = () => {
           
         }
       })
-      console.log(isManager);
-      let editGroup = 'collapse'
+      let editGroupButton = 'collapse'
       if(isManager){
-        editGroup = 'unset' ;
+        editGroupButton = 'unset' ;
       }
 
         return (
             <div key={index} style={{display:groupDisplay}}>
-            <Card className={classes.root} >
-              <Typography className={classes.nameAndImage} variant="h5" component="h2">
-                <img src={group.image} className={classes.groupImage} alt="No Image"/>
-                </Typography>
+            <Card  className={classes.root} > 
+            <img src={group.image} className={classes.groupImage} alt="No Image"/>
             <CardContent >
               <Typography variant="h5" component="h2">
                 <span className={classes.groupName}>{group.name}</span>
+                <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroupButton}} className={classes.editGroupButton} variant='contained' color ="secondary">Edit Group</Button></Link><br/>
+                <Button variant='contained' color='secondary' className={classes.editGroupButton} >Delete</Button>
               </Typography>
               <Typography variant="body1" color="textSecondary" component="p">
               Status:{group.status}
               </Typography>  <br/>
               <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
-            </CardContent>
-          <Link to={`/mainpage/editGroupComp/${group._id}`}><Button style={{visibility:editGroup}} className={classes.editGroupButton} variant='contained' color ="secondary">Edit Group</Button></Link>
-          <Button variant="contained" color="primary"> Delete</Button>
+            
+
+          </CardContent>
         </Card>
         
         <br/>
@@ -120,7 +119,7 @@ const GroupsComp = () => {
               setFind('')
             }} />{' '}
              <Button variant="contained" color="primary" onClick={findGroup} > Find Group</Button>
-            {usersObj}
+            {groupsObj}
         </div>
     );
 };
