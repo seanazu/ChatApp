@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import history from '../history';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
