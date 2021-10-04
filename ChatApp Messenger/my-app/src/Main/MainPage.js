@@ -15,10 +15,6 @@ import EditGroupComp from '../Groups/EditGroupComp';
 import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles({
-    paper: {
-      margin:'auto' , 
-      width:'640px'
-      },
     logOut:{
     display:'flex',
     justifyContent:'flex-end'
@@ -54,7 +50,7 @@ const MainPage = (props) => {
             </span>
             <br/>
             <br/> 
-              <Paper square className={classes.paper}>
+              <Paper >
               <Tabs
                 value={value}
                 indicatorColor="primary"
