@@ -36,7 +36,7 @@ const ChatBoxComp = (props) => {
   const room = props.match.params.room  
   const name = props.match.params.username 
   const id = props.match.params.userId 
-  const socket;
+  let socket;
 
   useEffect( ()=>{
       socket = io(ENDPOINT)
