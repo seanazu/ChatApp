@@ -43,7 +43,6 @@ function HideOnScroll(props) {
       
     },
     logOutButton : {
-      float : 'right',
       fontSize:'xx-small',
     }
     
