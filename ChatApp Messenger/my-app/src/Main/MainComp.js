@@ -33,17 +33,18 @@ function HideOnScroll(props) {
   };
 
   const useStyles = makeStyles({
-    appBar :{
+     appBar :{
       backgroundColor:'skyblue',
       height:'115px'
     },
     logo : {
-      textAlign: 'center'
+      margin:'auto',
+      marginTop:'-40px'
+      
     },
     logOutButton : {
       float : 'right',
       fontSize:'xx-small',
-      
     }
     
   });
