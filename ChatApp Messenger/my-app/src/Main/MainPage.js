@@ -15,9 +15,11 @@ import EditGroupComp from '../Groups/EditGroupComp';
 import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles({
-    logOut:{
-    display:'flex',
-    justifyContent:'flex-end'
+  paper : {
+
+  },
+  logOut:{
+    float:'right'
     }
 });
 
@@ -36,7 +38,7 @@ const MainPage = (props) => {
   },[])
 
 
-  const handleChange = (event, newValue) => {
+  const handleChange = ( event,newValue) => {
     setValue(newValue);
   };
     return (
@@ -46,11 +48,11 @@ const MainPage = (props) => {
             <br/>
             <br/>
             <span > 
-            <Button variant="contained" color="primary" onClick={()=>history.push('/')} >Log Out</Button>
+            
             </span>
             <br/>
             <br/> 
-              <Paper >
+              <Paper square >
               <Tabs
                 value={value}
                 indicatorColor="primary"
