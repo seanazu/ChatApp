@@ -48,7 +48,6 @@ const MainPage = (props) => {
             <br/>
             <br/>
             <span > 
-            
             </span>
             <br/>
             <br/> 
