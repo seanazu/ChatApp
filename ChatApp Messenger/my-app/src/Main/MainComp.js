@@ -10,6 +10,9 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import history from '../history';
+import { Button } from '@material-ui/core';
+
 
 
 function HideOnScroll(props) {
@@ -32,12 +35,17 @@ function HideOnScroll(props) {
   const useStyles = makeStyles({
     appBar :{
       backgroundColor:'skyblue',
-      height:'130px'
+      height:'115px'
     },
-    toolBar : {
-      display:'flex', 
-      justifyContent:'center',
+    logo : {
+      textAlign: 'center'
+    },
+    logOutButton : {
+      float : 'right',
+      fontSize:'xx-small',
+      
     }
+    
   });
 
 
@@ -50,8 +58,9 @@ const MainComp = () => {
               <CssBaseline />
               <HideOnScroll >
                 <AppBar className={classes.appBar}>
-                  <Toolbar className={classes.toolBar}>
-                  <img src="https://api.freelogodesign.org/files/463246c69261474caeb6025cc71ced07/thumb/logo_200x200.png?v=637617581860000000" alt="Subscription Web Site" />
+                  <Toolbar >
+                  <img className={classes.logo} src="https://api.freelogodesign.org/files/463246c69261474caeb6025cc71ced07/thumb/logo_200x200.png?v=637617581860000000" alt="Subscription Web Site" />
+                  <Button className={classes.logOutButton} variant="contained" color="secondary"  onClick={()=>history.push('/')} >Log Out</Button>
                   </Toolbar>
                 </AppBar>
               </HideOnScroll>
