@@ -5,7 +5,6 @@ import history from '../history';
 import './LoginComp.css'
 
 
-
 const LoginComp = () => {
     const [user , setUser] = useState({
         username : "",
@@ -26,7 +25,6 @@ const LoginComp = () => {
             sessionStorage.setItem('id',userData[0]._id )
         }else{
         alert('User Data Incorrect')}
-
     }
     
 
@@ -43,9 +41,7 @@ const LoginComp = () => {
 
             <div className="login">
              <div className="login-triangle"></div>
-             
              <h2 className="login-header">Log in</h2>
-           
              <div className="login-container" >
                <p><input type="text" placeholder="Username" onChange={(e)=> setUser({...user , username:e.target.value})}/></p>
                <p><input type="password" placeholder="Password" onChange={(e)=> setUser({...user , password:e.target.value})}/></p>
