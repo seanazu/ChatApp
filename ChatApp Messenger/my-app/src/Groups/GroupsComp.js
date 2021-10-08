@@ -33,8 +33,7 @@ const useStyles = makeStyles({
         float:'right',
         width:'55px',
         height:'30px'
-      },
-      
+      },    
 });
 
 
@@ -98,7 +97,6 @@ const GroupsComp = () => {
               </Typography>  <br/>
               <Link to={`/mainpage/groupChatComp/${group._id}/${user._id}/${user.username}`} ><Button variant="contained" color="primary"> Chat</Button></Link><br/>
             
-
           </CardContent>
         </Card>
         
