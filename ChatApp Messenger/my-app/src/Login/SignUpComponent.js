@@ -56,9 +56,7 @@ const SignUpComponent =  () => {
             } else{
                 alert("Verify That Every Box Has Data")
             }
-
         }
-
         const cancelSignUp = () =>{
             history.push('/')
         }
@@ -89,7 +87,6 @@ const SignUpComponent =  () => {
                onChange={(e) => setUser({...user , username : e.target.value})}
                autoFocus
              />
-
              <TextField
                variant="outlined"
                margin="normal"
