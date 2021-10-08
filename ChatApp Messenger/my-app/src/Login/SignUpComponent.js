@@ -165,8 +165,6 @@ const SignUpComponent =  () => {
          </Box>
        </Container>
 
-
-            
         </div>
     );
 };
