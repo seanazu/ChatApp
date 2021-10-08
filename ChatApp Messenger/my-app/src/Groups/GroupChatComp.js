@@ -48,7 +48,6 @@ const GroupChatComp = (props) => {
     useEffect(()=>{
         socket = io(ENDPOINT)
         socket.emit('join',room)
-    
     },[ENDPOINT])
 
     useEffect(() =>{
@@ -78,7 +77,6 @@ const GroupChatComp = (props) => {
         if(message){
             socket.emit('sendMessage', name,room,message,()=>setMessage(''))
         }
-
     }
 
     let messageObj = messages.map((item,index) =>{
@@ -130,8 +128,7 @@ const GroupChatComp = (props) => {
           <Button variant="contained" color="primary" onClick={sendMessage} > Send</Button><br/>
           </CardActions>
         </Card>
-
-            
+ 
         </div>
     );
 };
