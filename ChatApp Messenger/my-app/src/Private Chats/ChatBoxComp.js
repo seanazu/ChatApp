@@ -54,8 +54,6 @@ const ChatBoxComp = (props) => {
   }, [])
  
 
-  
-
   const sendMessage =async (e) =>{
     e.preventDefault()
     const messageObj = {
@@ -98,13 +96,10 @@ const ChatBoxComp = (props) => {
          <br/> 
          <Card className={classes.root} >
             <CardContent>
-              
                {messagesObj}
               <Typography variant="body2" color="textSecondary" component="p">
-
               </Typography>
             </CardContent>
-         
          
         </Card> 
         <Card >
